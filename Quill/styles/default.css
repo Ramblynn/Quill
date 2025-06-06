@@ -1,0 +1,332 @@
+* {
+    transition: background 0.4s ease, color 0.4s ease, border 0.4s ease;
+}
+
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: #f9f4ef;
+    color: #3e3e3e;
+    display: flex;
+    height: 100vh;
+}
+
+#app {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 250px;
+    background: #f0e7db;
+    padding: 1rem;
+    border-right: 2px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar h2 {
+    user-select: none;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+#fic-list {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+#fic-list li {
+    user-select: none;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#fic-list li:hover {
+    background: #e0d8cc;
+}
+
+.delete-btn {
+    float: right;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #b44;
+    margin-left: 8px;
+}
+
+.delete-btn:hover {
+    color: #d11;
+}
+
+#new-fic {
+    padding: 0.5rem;
+    background: #d4c2b0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#editor-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+#fic-title {
+    font-size: 1.4rem;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: transparent;
+}
+
+#chapter-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 10px;
+    padding: 0.5rem 0.75rem;
+    background: #f5ece1;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+body.dark #chapter-nav {
+    background: #2c2621;
+    border: 1px solid #3a322b;
+}
+
+#chapter-nav select,
+#chapter-nav button {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
+    background: #e8dfd6;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+
+}
+
+#chapter-nav select:hover,
+#chapter-nav button:hover {
+    background: #dfd5ca;
+    transform: translateY(-1px);
+}
+
+body.dark #chapter-nav select,
+body.dark #chapter-nav button {
+    background: #3a322b;
+    color: #f5f0eb;
+    border: 1px solid #4a4139;
+}
+
+body.dark #chapter-nav select:hover,
+body.dark #chapter-nav button:hover {
+    background: #4c4238;
+}
+
+#chapter-selector {
+    font-size: 1rem;
+    padding: 0.4rem;
+}
+
+#chapter-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+#chapter-controls select,
+#chapter-controls button {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+}
+
+#status-bar {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+#fic-editor {
+    flex-grow: 1;
+    resize: none;
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 1rem;
+    border: none;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+#settings-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #d4c2b0;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#export-btn {
+    position: fixed;
+    top: 10px;
+    right: 60px;
+    background: #d4c2b0;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#settings-panel {
+    position: fixed;
+    top: 55px;
+    right: 10px;
+    background: #fffaf4;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0.75rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+#settings-panel label {
+    font-size: 0.9rem;
+    display: block;
+}
+
+#preview-pane {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 40%;
+  max-height: 40%;
+  background: #fff;
+  border-top-left-radius: 12px;
+  padding: 1rem;
+  overflow-y: auto;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+}
+
+#preview-pane h3 {
+    user-select: none;
+}
+
+#markdown-preview {
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+body.dark {
+  background: #1e1b18;
+  color: #f5f0eb;
+}
+
+body.dark #sidebar {
+  background: #2c2621;
+  color: #f5f0eb;
+  border-right: 2px solid #3a322b;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark #fic-list li {
+  background: #3a322b;
+  color: #f5f0eb;
+  border: 1px solid #4a4139;
+  transition: background 0.2s, transform 0.2s;
+}
+
+body.dark #fic-list li:hover {
+  background: #4c4238;
+  transform: translateX(2px);
+}
+
+body.dark #new-fic {
+  background: #bfa48a;
+  color: #1e1b18;
+  font-weight: bold;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+body.dark #new-fic:hover {
+  background: #d8c1aa;
+}
+
+body.dark #fic-editor,
+body.dark #preview-pane {
+  background: #28231e;
+  color: #f0eae3;
+  border: 1px solid #3a322b;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.05);
+}
+
+body.dark #fic-title {
+  background: transparent;
+  border-bottom: 2px solid #4d4036;
+  color: #f0eae3;
+}
+
+body.dark #settings-panel {
+  background: #2f2a25;
+  color: #f5f0eb;
+  border: 1px solid #4a4139;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+body.dark #settings-btn {
+  background: #bfa48a;
+  color: #1e1b18;
+}
+
+body.dark #settings-btn:hover {
+  background: #d8c1aa;
+}
+
+body.dark #export-btn {
+  background: #bfa48a;
+  color: #1e1b18;
+}
+
+body.dark #export-btn:hover {
+  background: #d8c1aa;
+}
+
+body.dark #markdown-preview {
+  color: #f5f0eb;
+}
+
+body.dark #preview-pane {
+  background: #2b2723;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+}
