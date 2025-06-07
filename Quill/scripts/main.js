@@ -26,6 +26,8 @@ let currentFicIndex = null;
 let currentChapterIndex = 0;
 let editStartTime = null;
 let editTimerInterval = null;
+let previewTimeout = null;
+let lastActivityTime = Date.now();
 
 function updateStats() {
     const text = ficEditor.value;
@@ -157,8 +159,19 @@ ficEditor.addEventListener("input", () => {
     if (currentFicIndex !== null) {
         fics[currentFicIndex].chapters[currentChapterIndex].content = ficEditor.value;
         saveFics();
-        updatePreview();
         updateStats();
+
+        lastActivityTime = Date.now();
+        preview.style.display = "none";
+
+        if (previewTimeout) clearTimeout(previewTimeout);
+        previewTimeout = setTimeout(() => {
+            const now = Date.now();
+            if (now - lastActivityTime >= 20000) {
+                updatePreview();
+                preview.style.display = "block";
+            }
+        }, 20000);
     }
 });
 
