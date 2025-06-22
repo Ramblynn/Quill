@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quill</title>
+        <link rel="stylesheet" href="styles/default.css">
+    </head>
+    <body>
+        <div id="app">
+            <aside id="sidebar">
+                <h2>📚 Your Fics</h2>
+                <ul id="fic-list">
+                    <!-- Dynamically populated -->
+                </ul>
+                <button id="new-fic">➕ New Fic</button>
+            </aside>
+
+            <main id="editor-area">
+                <input id="fic-title" placeholder="Untitled Fic">
+                <div id="chapter-nav">
+                    <select id="chapter-selector"></select>
+                    <button id="rename-chapter" text="Rename Chapter">✏️</button>
+                    <button id="delete-chapter" text="Delete Chapter">🗑️</button>
+                    <button id="add-chapter" text="New Chapter">➕</button>
+                </div>
+                <textarea id="fic-editor" placeholder="Start writing your cozy masterpiece..."></textarea>
+                <div id="status-bar">
+                    <span id="word-count">0 words</span>
+                    <span id="char-count">0 chars</span>
+                    <span id="edit-timer">0:00 elapsed</span>
+                </div>
+            </main>
+        </div>
+
+        <button id="settings-btn" title="Settings">⚙️</button>
+        <button id="export-btn" title="Export Fic">💾</button>
+        <div id="settings-panel">
+            <label>
+                <input type="checkbox" id="dark-mode-toggle">
+                Enabled Dark Mode
+            </label>
+            <label>
+                <input type="checkbox" id="sync-time-toggle">
+                Sync Theme with System Time
+            </label>
+        </div>
+
+        <section id="preview-pane">
+            <h3>📄 Live Preview</h3>
+            <div id="markdown-preview"></div>
+        </section>
+
+        <script src="scripts/marked.min.js"></script>
+        <script src="scripts/main.js"></script>
+    </body>
+</html>
